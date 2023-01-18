@@ -1,0 +1,21 @@
+*{padding: 0; margin: 0;}
+
+body{
+  background: black;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#mensagem{
+  color: #fff;
+  font-size: 30px;
+}
+
+#mensagem::after {
+  content: '|';
+  margin-left: 5px;
+  animation: blink 0.7s infinite;
+}
