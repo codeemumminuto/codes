@@ -16,7 +16,6 @@ for coluna in range(1,6):
         letra = get_column_letter(coluna)
         planilha1[letra + str(linha)] = lista[i]
         i+=1
-
-saida = wb.create_sheet(title="Saida")
+        
 wb.save('Teste.xlsx')
 
