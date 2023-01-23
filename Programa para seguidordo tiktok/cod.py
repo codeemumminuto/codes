@@ -30,7 +30,7 @@ cadastros = {
 #imprime as escolas cadastradas e vagas
 print("Escolas cadastradas: ")
 for id_escola, escola in escolas.items():
-    print(f"{escola['nome']} | Vagas: {escola['vagas']}")
+    print(f"{escola['nome']} - Vagas: {escola['vagas']}")
 
 #organiza os cadastros do maior para o menor
 cadastros_ordenado = sorted(cadastros.items(), key=lambda x: x[1]['classificacao'],reverse=True)
