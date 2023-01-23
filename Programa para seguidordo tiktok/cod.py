@@ -1,8 +1,10 @@
+#função para encontrar id a partir do nome
 def encontrar_id(nome_escola, dicionario):
     for id, escola in dicionario.items():
         if escola['nome'] == nome_escola:
             return id
 
+#dicionário com as escolas
 escolas = {
     1:{'nome': 'Jesus de Nazaré', 'vagas': 3},
     2:{'nome': 'Mario Compagner', 'vagas': 4},
@@ -12,6 +14,7 @@ escolas = {
     6:{'nome': 'Benedito Carvalho', 'vagas': 2},
 }
 
+#dicionário com os cadastros
 cadastros = {
     1:{'nome': 'Ana', 'classificacao': 75, 'opcao1': escolas[1]['nome'], 'opcao2': escolas[5]['nome'], 'opcao3': escolas[3]['nome']},
     2:{'nome': 'Gabriel', 'classificacao': 140, 'opcao1': escolas[1]['nome'], 'opcao2': escolas[2]['nome'], 'opcao3': escolas[3]['nome']},
@@ -29,20 +32,13 @@ print("Escolas cadastradas: ")
 for id_escola, escola in escolas.items():
     print(f"{escola['nome']} | Vagas: {escola['vagas']}")
 
-
-#organiza e imprime os cadastros do maior para o menor
+#organiza os cadastros do maior para o menor
 cadastros_ordenado = sorted(cadastros.items(), key=lambda x: x[1]['classificacao'],reverse=True)
-print("\n")
-print("Pessoas cadastradas: ")
-for id_cadastro, cadastro in cadastros_ordenado:
-    print(f"Nome: {cadastro['nome']}")
-    print(f"Classificação: {cadastro['classificacao']}")
-    print(f"Opção 1: {cadastro['opcao1']}")
-    print(f"Opção 2: {cadastro['opcao2']}")
-    print(f"Opção 3: {cadastro['opcao3']}")
-    print()
 
+#lista vazia para incluir os resultados no final
 resultados = list()
+
+#laço que realiza o trabalho
 for id_cadastro, cadastro in cadastros_ordenado:
     for opcao in ['opcao1', 'opcao2', 'opcao3']:
         nome_escola = cadastro[opcao]
@@ -53,6 +49,6 @@ for id_cadastro, cadastro in cadastros_ordenado:
             resultados.append(f"Concursado: {cadastro['nome']} - Escola: {nome_escola}")
             break
 
-
+#impressão dos resultados
 for resultado in resultados:
     print(resultado)
